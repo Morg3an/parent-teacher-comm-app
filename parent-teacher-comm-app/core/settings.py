@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = "comm.User"
 LOGIN_URL = "login"          # name of your login path
 LOGIN_REDIRECT_URL = "dashboard"   # where to go after successful login
+STATIC_ROOT = BASE_DIR / "static"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -25,7 +25,14 @@ SECRET_KEY = 'django-insecure-sa2l&pc=blm3=t&%==+6v$t483=8vno^e^v3@-2#5pcnv(#1hw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+import os
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0:10000",
+    os.getenv("RENDER_EXTERNAL_HOSTNAME"),  # auto‑set by Render
+    "parent-teacher-comm-app.onrender.com", # your permanent URL
+]
 
 
 # Application definition

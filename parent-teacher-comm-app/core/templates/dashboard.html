@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Dashboard</h2>
+
+<div class="row g-4">
+  <!-- Students -->
+  <div class="col-lg-6">
+    <div class="card p-3 h-100">
+      <h4 class="mb-3">Your Students</h4>
+      <table class="table table-dark table-striped align-middle mb-0">
+        <thead><tr><th>Name</th><th>Math</th><th>English</th></tr></thead>
+        <tbody>
+          {% for s in students %}
+            <tr><td>{{ s.name }}</td><td>{{ s.math_score }}</td><td>{{ s.english_score }}</td></tr>
+          {% empty %}
+            <tr><td colspan="3" class="text-muted">No students.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Messages & Meetings -->
+  <div class="col-lg-6 d-flex flex-column gap-4">
+    <div class="card p-3">
+      <h4 class="mb-3">Recent Messages</h4>
+      <div class="list-group">
+        {% for m in messages %}
+          <a class="list-group-item list-group-item-action bg-transparent text-light"
+             href="{% url 'message_reply' m.id %}">
+            <strong>{{ m.sender.username }}</strong>:
+            {{ m.body|truncatechars:50 }}
+            <span class="badge bg-secondary float-end">{{ m.sent_at|date:"M d H:i" }}</span>
+          </a>
+        {% empty %}
+          <div class="text-muted">No messages.</div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="card p-3">
+      <h4 class="mb-3">Upcoming Meetings</h4>
+      <ul class="list-group">
+        {% for mt in meetings %}
+          <li class="list-group-item bg-transparent text-light">
+            {{ mt.student }} — {{ mt.scheduled_for|date:"M d H:i" }}
+          </li>
+        {% empty %}
+          <li class="list-group-item bg-transparent text-muted">No meetings scheduled.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 d-flex gap-3">
+  <a class="btn btn-cobalt" href="{% url 'message_create' %}">Send Message</a>
+  <a class="btn btn-cobalt" href="{% url 'meeting_create' %}">Schedule Meeting</a>
+</div>
+{% endblock %}

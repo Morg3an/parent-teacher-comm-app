@@ -1,0 +1,44 @@
+####################################
+#  Python / Django
+####################################
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+*.log
+
+# virtual environments
+venv/
+env/
+.venv/
+
+# local database & media
+db.sqlite3
+*.sqlite3
+media/
+staticfiles/        # collected static output (Render/Vercel rebuilds it)
+
+# configuration & secrets
+.env
+.env.*              # .env.dev, .env.prod, etc.
+*.secret
+*.pem
+*.key
+
+####################################
+#  Node / Vercel (if you add JS tooling)
+####################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+####################################
+#  OS / Editor junk
+####################################
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

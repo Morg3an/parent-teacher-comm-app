@@ -1,0 +1,53 @@
+:root{
+  --cobalt:#0d6efd;           /* main cobalt blue */
+  --cobalt-dark:#084298;
+  --bg-dark:#121721;
+  --surface:#1d2330;
+  --text-light:#f1f6ff;
+}
+
+body{
+  background:var(--bg-dark);
+  color:var(--text-light);
+}
+
+.navbar{
+  background:var(--surface)!important;
+  border-radius:.75rem;
+}
+
+.navbar-brand,
+.nav-link{
+  color:var(--text-light)!important;
+  transition:color .2s;
+}
+.nav-link:hover,
+.navbar-brand:hover{color:var(--cobalt);}
+
+.btn-cobalt{
+  background:var(--cobalt);
+  border:none;
+  color:#fff;
+  border-radius:.5rem;
+  box-shadow:0 2px 4px rgba(0,0,0,.3);
+  transition:transform .15s,background .15s;
+}
+.btn-cobalt:hover{background:var(--cobalt-dark);transform:translateY(-1px);}
+.btn-cobalt:active{transform:translateY(1px);}
+
+.card{
+  background:var(--surface);
+  border:none;
+  border-radius:.75rem;
+  box-shadow:0 2px 6px rgba(0,0,0,.4);
+}
+.table-dark{
+  --bs-table-bg:var(--surface);
+  --bs-table-striped-bg:#1b2130;
+  color:var(--text-light);
+}
+input,select,textarea{
+  background:#1b2130!important;
+  color:var(--text-light)!important;
+  border:1px solid #2b3242!important;
+}
